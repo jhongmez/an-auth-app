@@ -20,8 +20,11 @@ export class LoginPageComponent {
 	login() {
 		// console.log( this.myForm.value );
 		const { email, password } = this.myForm.value;
-		this.authService.login( email, password ).subscribe( success => {
-			console.log(success);
+		this.authService.login( email, password ).subscribe({
+			next: () => console.log('Todo bien!'),
+			error: (err) => {
+				console.log({ LoginError: err })
+			} 
 		})
 	}
 	
