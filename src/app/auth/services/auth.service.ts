@@ -44,7 +44,7 @@ export class AuthService {
 				}),
 				map( () => true ),
 				// TODO: ERRORES
-				catchError( err => throwError( () => err.error.message ) )
+				catchError( err => throwError( () =>  err.error.message ) )
 			);
 	}
 	

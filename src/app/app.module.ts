@@ -15,13 +15,13 @@ import { AuthInterceptorService } from './auth/interceptors/auth-interceptor.ser
 		AppRoutingModule,
 		HttpClientModule
 	],
-	providers: [
-		{
-			provide: HTTP_INTERCEPTORS,
-			useClass: AuthInterceptorService,
-			multi: true
-		}
-	],
+	// providers: [
+	// 	{
+	// 		provide: HTTP_INTERCEPTORS,
+	// 		useClass: AuthInterceptorService,
+	// 		multi: true
+	// 	}
+	// ],
 	bootstrap: [AppComponent]
 })
 export class AppModule { }

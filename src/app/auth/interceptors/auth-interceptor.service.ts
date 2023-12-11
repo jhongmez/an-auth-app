@@ -10,31 +10,31 @@ export class AuthInterceptorService {
 
 	constructor( private router: Router ) { }
 
-	intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+	// intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 		
-		const token: string = localStorage.getItem('token')!;
+	// 	const token: string = localStorage.getItem('token')!;
 
-		let request = req;
+	// 	let request = req;
 
-		if (token) {
-			request = req.clone({
-				setHeaders: {
-					authorization: `Bearer ${ token }`
-				}
-			});
-		}
+	// 	if (token) {
+	// 		request = req.clone({
+	// 			setHeaders: {
+	// 				authorization: `Bearer ${ token }`
+	// 			}
+	// 		});
+	// 	}
 
-		return next.handle(request).pipe(
-			catchError((err: HttpErrorResponse) => {
+	// 	return next.handle(request).pipe(
+	// 		catchError((err: HttpErrorResponse) => {
 	
-				if (err.status === 401) {
-					this.router.navigateByUrl('/auth/register');
-				}
+	// 			if (err.status === 401) {
+	// 				this.router.navigateByUrl('/auth/register');
+	// 			}
 	
-				return throwError( () => err );
+	// 			return throwError( () => err );
 	
-			})
-		);
+	// 		})
+	// 	);
 
-	}
+	// }
 }
